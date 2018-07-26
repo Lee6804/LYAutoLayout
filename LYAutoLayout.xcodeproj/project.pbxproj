@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1E1674210889FB0013C827 /* responseObject.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E1673210889FA0013C827 /* responseObject.json */; };
 		9B3BB6F02105B83D00B01031 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB6EF2105B83D00B01031 /* AppDelegate.m */; };
 		9B3BB6F32105B83D00B01031 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB6F22105B83D00B01031 /* ViewController.m */; };
 		9B3BB6F62105B83D00B01031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BB6F42105B83D00B01031 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		8333E62321C8B5958698B71E /* libPods-LYAutoLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYAutoLayout.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B1E1673210889FA0013C827 /* responseObject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = responseObject.json; sourceTree = "<group>"; };
 		9B3BB6EB2105B83D00B01031 /* LYAutoLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYAutoLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3BB6EE2105B83D00B01031 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B3BB6EF2105B83D00B01031 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				9B3BB6F92105B83E00B01031 /* LaunchScreen.storyboard */,
 				9B3BB6FC2105B83E00B01031 /* Info.plist */,
 				9B3BB6FD2105B83E00B01031 /* main.m */,
+				9B1E1673210889FA0013C827 /* responseObject.json */,
 			);
 			path = LYAutoLayout;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B3BB6FB2105B83E00B01031 /* LaunchScreen.storyboard in Resources */,
+				9B1E1674210889FB0013C827 /* responseObject.json in Resources */,
 				9B3BB6F82105B83E00B01031 /* Assets.xcassets in Resources */,
 				9B3BB6F62105B83D00B01031 /* Main.storyboard in Resources */,
 			);

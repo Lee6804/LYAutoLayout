@@ -141,21 +141,14 @@
 
 
 -(void)setModel:(LYModel *)model{
-    if (_model != model) {
-        
-    }
+    
     _model = model;
-    if ([model.portrait rangeOfString:@"http"].location != NSNotFound) {
-        [self.headImg sd_setImageWithURL:[NSURL URLWithString:model.portrait] placeholderImage:[UIImage imageNamed:@"photo"]];
-        
-    }else{
-        [self.headImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://m.easyyimin.com/%@",model.portrait]] placeholderImage:[UIImage imageNamed:@"photo"]];
-    }
+    
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:model.portrait] placeholderImage:[UIImage imageNamed:@"photo"]];
     self.nickNameLabel.text = model.nickname;
     self.titleLabel.text = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:model.title options:0] encoding:NSUTF8StringEncoding];
     NSString *contentStr = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:model.content options:0] encoding:NSUTF8StringEncoding];
     self.contentLabel.text = contentStr;
-    NSLog(@"%@----%f",contentStr,[self getSize:80 str:contentStr].size.height);
     self.moreBtn.hidden = [self getSize:80 str:contentStr].size.height > 100 ? NO : YES;
     self.moreBtn.selected = self.model.unfold;
 

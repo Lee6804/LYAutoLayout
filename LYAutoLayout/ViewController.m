@@ -21,8 +21,6 @@ static NSString *const LYCELL = @"LYCell";
 #define SWidth self.view.frame.size.width
 #define SHeight self.view.frame.size.height
 
-#define BaseUrl @"http://m.easyyimin.com/index.php/Home/Interface/showmessage"
-
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -39,16 +37,19 @@ static NSString *const LYCELL = @"LYCell";
     return _data;
 }
 
+- (NSDictionary *)readLocalFileWithName:(NSString *)name {
+    // 获取文件路径
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
+    // 将文件数据化
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    // 对数据进行JSON格式化并返回字典形式
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+}
+
 -(void)loadData{
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-    [session POST:BaseUrl parameters:@{@"username":@"151123886804",@"page":@(2)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
-        self.data = [LYModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.tableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+
+    self.data = [LYModel mj_objectArrayWithKeyValuesArray:[self readLocalFileWithName:@"responseObject"][@"data"]];
+    [self.tableView reloadData];
 }
 
 -(UITableView *)tableView{
