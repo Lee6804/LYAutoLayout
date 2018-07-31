@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AFD46A220655ED06A0BF56AF5C09184"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "299DC353C66AFED9F5847F450D398632"
+               BlueprintName = "WHDebugTool"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSDWebImage.a">
+               BuildableName = "libWHDebugTool.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

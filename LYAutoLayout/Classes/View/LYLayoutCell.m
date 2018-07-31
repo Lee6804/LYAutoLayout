@@ -7,9 +7,7 @@
 //
 
 #import "LYLayoutCell.h"
-#import <Masonry.h>
-#import <UIImageView+WebCache.h>
-#import "LYImage.h"
+#import "LYImageListView.h"
 
 #define SWidth [UIScreen mainScreen].bounds.size.width
 #define SHeight [UIScreen mainScreen].bounds.size.height
@@ -25,6 +23,7 @@
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UILabel *contentLabel;
 @property(nonatomic,strong)UIButton *moreBtn;
+@property(nonatomic,strong)LYImageListView *imageListView;
 @property(nonatomic,strong)UILabel *timeLabel;
 @property(nonatomic,strong)UILabel *addressLabel;
 @property(nonatomic,strong)UIView *lineView;
@@ -76,6 +75,10 @@
     [self.moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.moreBtn.hidden = YES;
     [self.contentView addSubview:self.moreBtn];
+    
+    // 图片区
+    self.imageListView = [LYImageListView new];
+    [self.contentView addSubview:self.imageListView];
 
     self.timeLabel = [UILabel new];
     self.timeLabel.textColor = [UIColor lightGrayColor];
@@ -121,8 +124,15 @@
         make.height.mas_equalTo(0);
     }];
     
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imageListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.moreBtn.mas_bottom).offset(Space/2);
+        make.left.mas_equalTo(self.contentLabel.mas_left);
+        make.right.mas_equalTo(self.contentLabel.mas_right);
+//        make.height.mas_equalTo(0);
+    }];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.imageListView.mas_bottom).offset(Space/2);
         make.left.mas_equalTo(self.contentLabel.mas_left);
     }];
     
@@ -156,9 +166,13 @@
         make.height.mas_equalTo(model.unfold ? [self getSize:80 str:contentStr].size.height : (self.moreBtn.hidden == YES ? [self getSize:80 str:contentStr].size.height + 1 : 100));
     }];
     
+    
     [self.moreBtn mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(self.moreBtn.hidden == YES ? 0 : 20);
     }];
+    
+    self.imageListView.model = model;
+    
     self.timeLabel.text = model.time;
     self.addressLabel.text = [model.address isEqualToString:@""] ? @"" : model.address;
 }
@@ -187,16 +201,26 @@
     NSString *contentStr = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:model.content options:0] encoding:NSUTF8StringEncoding];
     CGFloat height = 70;//内容以上的固定高度 headImg高度+2个Space
     if (model.unfold) {
-        height += [LYImage getSize:80 str:contentStr].size.height;//展开状态下 累加内容label高度
+        height += [LYPublicMethod getSize:80 str:contentStr].size.height;//展开状态下 累加内容label高度
         height += 56;//下面多余控件总高度
     }else{
-        if ([LYImage getSize:80 str:contentStr].size.height > 100) {
+        if ([LYPublicMethod getSize:80 str:contentStr].size.height > 100) {
             height += 120;
         }else{
-            height += [LYImage getSize:80 str:contentStr].size.height;
+            height += [LYPublicMethod getSize:80 str:contentStr].size.height;
         }
         height += 40;
     }
+    
+    NSInteger count = [model.picurl componentsSeparatedByString:@"|"].count;
+    if (count != 0) {
+        height += [LYImageListView imageListHeight:model];
+    }
+    
+    if (![model.picurl isEqualToString:@""]) {
+        height += 10;
+    }
+    
     return height;
 }
 

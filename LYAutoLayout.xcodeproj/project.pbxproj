@@ -19,6 +19,10 @@
 		9B3BB7282105C5AA00B01031 /* LYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB7272105C5AA00B01031 /* LYModel.m */; };
 		9B3BB72B2105C76E00B01031 /* LYLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB72A2105C76E00B01031 /* LYLayoutCell.m */; };
 		9B3BB72E2105D78100B01031 /* LYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB72D2105D78100B01031 /* LYImage.m */; };
+		9B6D8574210EF5CE004BB613 /* LYPublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D8573210EF5CE004BB613 /* LYPublicMethod.m */; };
+		9B7FEB8C210FF78800916A1F /* UIView+LYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FEB89210FF78700916A1F /* UIView+LYFrame.m */; };
+		9B7FEB8D210FF78800916A1F /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FEB8B210FF78800916A1F /* NSDictionary+Log.m */; };
+		9B7FEB91210FFFA100916A1F /* LYImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FEB90210FFFA100916A1F /* LYImageListView.m */; };
 		CD63F8376BACD7C934AE9889 /* libPods-LYAutoLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8333E62321C8B5958698B71E /* libPods-LYAutoLayout.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,16 @@
 		9B3BB72A2105C76E00B01031 /* LYLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYLayoutCell.m; sourceTree = "<group>"; };
 		9B3BB72C2105D78100B01031 /* LYImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYImage.h; sourceTree = "<group>"; };
 		9B3BB72D2105D78100B01031 /* LYImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYImage.m; sourceTree = "<group>"; };
+		9B6D8572210EF5CE004BB613 /* LYPublicMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPublicMethod.h; sourceTree = "<group>"; };
+		9B6D8573210EF5CE004BB613 /* LYPublicMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPublicMethod.m; sourceTree = "<group>"; };
+		9B6D8575210EF9E9004BB613 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9B6D8576210EFC8D004BB613 /* LYStrongholdKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYStrongholdKit.h; sourceTree = "<group>"; };
+		9B7FEB88210FF78700916A1F /* UIView+LYFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYFrame.h"; sourceTree = "<group>"; };
+		9B7FEB89210FF78700916A1F /* UIView+LYFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYFrame.m"; sourceTree = "<group>"; };
+		9B7FEB8A210FF78700916A1F /* NSDictionary+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Log.h"; sourceTree = "<group>"; };
+		9B7FEB8B210FF78800916A1F /* NSDictionary+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Log.m"; sourceTree = "<group>"; };
+		9B7FEB8F210FFFA100916A1F /* LYImageListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYImageListView.h; sourceTree = "<group>"; };
+		9B7FEB90210FFFA100916A1F /* LYImageListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYImageListView.m; sourceTree = "<group>"; };
 		BB432DCE22650B2EB16B0A7E /* Pods-LYAutoLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYAutoLayout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LYAutoLayout/Pods-LYAutoLayout.debug.xcconfig"; sourceTree = "<group>"; };
 		F334CA21CACC432864CDA503 /* Pods-LYAutoLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYAutoLayout.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYAutoLayout/Pods-LYAutoLayout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +159,7 @@
 		9B3BB7062105B83E00B01031 /* LYAutoLayoutTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B6D8575210EF9E9004BB613 /* PrefixHeader.pch */,
 				9B3BB7072105B83E00B01031 /* LYAutoLayoutTests.m */,
 				9B3BB7092105B83E00B01031 /* Info.plist */,
 			);
@@ -163,6 +178,9 @@
 		9B3BB7232105C58500B01031 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9B7FEB8E210FFF6400916A1F /* Tools */,
+				9B7FEB87210FF69500916A1F /* Category */,
+				9B6D8571210EF592004BB613 /* Common */,
 				9B3BB7252105C59700B01031 /* Model */,
 				9B3BB7242105C58E00B01031 /* View */,
 			);
@@ -174,8 +192,8 @@
 			children = (
 				9B3BB7292105C76E00B01031 /* LYLayoutCell.h */,
 				9B3BB72A2105C76E00B01031 /* LYLayoutCell.m */,
-				9B3BB72C2105D78100B01031 /* LYImage.h */,
-				9B3BB72D2105D78100B01031 /* LYImage.m */,
+				9B7FEB8F210FFFA100916A1F /* LYImageListView.h */,
+				9B7FEB90210FFFA100916A1F /* LYImageListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +205,44 @@
 				9B3BB7272105C5AA00B01031 /* LYModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9B6D8571210EF592004BB613 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9B6D8576210EFC8D004BB613 /* LYStrongholdKit.h */,
+				9B6D8579210F20BE004BB613 /* LYPublicMethod */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9B6D8579210F20BE004BB613 /* LYPublicMethod */ = {
+			isa = PBXGroup;
+			children = (
+				9B6D8572210EF5CE004BB613 /* LYPublicMethod.h */,
+				9B6D8573210EF5CE004BB613 /* LYPublicMethod.m */,
+			);
+			path = LYPublicMethod;
+			sourceTree = "<group>";
+		};
+		9B7FEB87210FF69500916A1F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9B7FEB8A210FF78700916A1F /* NSDictionary+Log.h */,
+				9B7FEB8B210FF78800916A1F /* NSDictionary+Log.m */,
+				9B7FEB88210FF78700916A1F /* UIView+LYFrame.h */,
+				9B7FEB89210FF78700916A1F /* UIView+LYFrame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		9B7FEB8E210FFF6400916A1F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BB72C2105D78100B01031 /* LYImage.h */,
+				9B3BB72D2105D78100B01031 /* LYImage.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		ED660A0343573043558A8844 /* Pods */ = {
@@ -354,9 +410,13 @@
 				9B3BB72E2105D78100B01031 /* LYImage.m in Sources */,
 				9B3BB6F32105B83D00B01031 /* ViewController.m in Sources */,
 				9B3BB72B2105C76E00B01031 /* LYLayoutCell.m in Sources */,
+				9B7FEB91210FFFA100916A1F /* LYImageListView.m in Sources */,
+				9B6D8574210EF5CE004BB613 /* LYPublicMethod.m in Sources */,
+				9B7FEB8D210FF78800916A1F /* NSDictionary+Log.m in Sources */,
 				9B3BB6FE2105B83E00B01031 /* main.m in Sources */,
 				9B3BB7282105C5AA00B01031 /* LYModel.m in Sources */,
 				9B3BB6F02105B83D00B01031 /* AppDelegate.m in Sources */,
+				9B7FEB8C210FF78800916A1F /* UIView+LYFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S36P5YLAMG;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LYAutoLayoutTests/PrefixHeader.pch";
 				INFOPLIST_FILE = LYAutoLayout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,6 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S36P5YLAMG;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LYAutoLayoutTests/PrefixHeader.pch";
 				INFOPLIST_FILE = LYAutoLayout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -7,5 +7,6 @@ pod 'UITableView+FDTemplateLayoutCell'
 pod 'Masonry'
 pod 'MJExtension'
 pod 'SDWebImage'
+pod 'WHDebugTool'
 
 end

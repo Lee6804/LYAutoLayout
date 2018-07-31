@@ -1,0 +1,58 @@
+//
+//  PrefixHeader.pch
+//  LYAutoLayout
+//
+//  Created by Lee on 2018/7/30.
+//  Copyright © 2018年 Lee. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "LYStrongholdKit.h"
+
+/** 颜色*/
+#define RGBColor(r,g,b)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGBAColor(r,g,b,a)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define RGB16Color(rgbValue)  [UIColor colorWithRed:((float)((rgbValue& 0xFF0000) >>16))/255.0 green:((float)((rgbValue&  0xFF00)  >>8))/255.0 blue:((float)(rgbValue&  0xFF))/255.0 alpha:1.0]
+
+#pragma mark- 屏幕适配
+#pragma mark 判断是否为4或4s
+#define kScreenIphone4And4s (([[UIScreen mainScreen] bounds].size.width)==320)
+#pragma mark 判断是否为5或5s
+#define kScreenIphone5And5s (([[UIScreen mainScreen] bounds].size.height)==568)
+#pragma mark 判断是否为6或6s
+#define kScreenIphone6And6s (([[UIScreen mainScreen] bounds].size.height)==667)
+#pragma mark 判断是否为6p或6sp
+#define kScreenIphone6pAnd6sp (([[UIScreen mainScreen] bounds].size.height)==736)
+#pragma mark 判断是否为X
+#define kScreenIphoneX (([[UIScreen mainScreen] bounds].size.height)==812)
+
+#pragma mark- 屏幕尺寸
+#pragma mark 获取屏幕bounds
+#define MainScreen  [UIScreen mainScreen].bounds
+#pragma mark 获取屏幕的宽
+#define MainWidth [UIScreen mainScreen].bounds.size.width
+#pragma mark 获取屏幕的高
+#define MainHeight [UIScreen mainScreen].bounds.size.height
+
+#define LYStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height//状态栏高度
+#define LYNavBarHeight 44.0
+#define LYTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)//底部tabbar高度
+#define LYTopHeight (LYStatusBarHeight + LYNavBarHeight)//整个导航栏高度
+#define LYBottomHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)//底部多出的高度
+#define TabVHeight MainHeight - LYTopHeight //tableView高度
+
+
+//在开发时会有NSLogs will be shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"控制器%s : 第%d行\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
+
+#endif /* PrefixHeader_pch */

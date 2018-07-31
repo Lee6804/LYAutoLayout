@@ -8,11 +8,6 @@
 
 #import "ViewController.h"
 
-#import <AFNetworking.h>
-#import <UITableView+FDTemplateLayoutCell.h>
-#import <Masonry.h>
-#import <MJExtension.h>
-
 #import "LYModel.h"
 #import "LYLayoutCell.h"
 
@@ -35,6 +30,16 @@ static NSString *const LYCELL = @"LYCell";
         _data = [NSMutableArray array];
     }
     return _data;
+}
+
+-(void)loadHttpData{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",@"multipart/form-data",nil];
+    [manager POST:@"http://m.easyyimin.com/index.php/Home/Interface/showmessage" parameters:@{@"username":@"151123886804",@"page":@(4)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (NSDictionary *)readLocalFileWithName:(NSString *)name {
@@ -70,10 +75,12 @@ static NSString *const LYCELL = @"LYCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [[WHDebugToolManager sharedInstance] toggleWith:DebugToolTypeFPS | DebugToolTypeMemory | DebugToolTypeCPU];
     self.navigationItem.title = @"自动布局";
     self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
     [self.view addSubview:self.tableView];
     [self loadData];
+    [self loadHttpData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -96,6 +103,7 @@ static NSString *const LYCELL = @"LYCell";
     cell.reloadTabBlock = ^{
         [weakSelf.tableView reloadData];
 //        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:NO];
     };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

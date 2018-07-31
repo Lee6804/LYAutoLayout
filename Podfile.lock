@@ -20,6 +20,7 @@ PODS:
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
   - "UITableView+FDTemplateLayoutCell (1.6)"
+  - WHDebugTool (1.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - MJExtension
   - SDWebImage
   - "UITableView+FDTemplateLayoutCell"
+  - WHDebugTool
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -35,6 +37,7 @@ SPEC REPOS:
     - MJExtension
     - SDWebImage
     - "UITableView+FDTemplateLayoutCell"
+    - WHDebugTool
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -42,7 +45,8 @@ SPEC CHECKSUMS:
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  WHDebugTool: cd091a333484ca50530c12ba2c2573eecab02e83
 
-PODFILE CHECKSUM: d465b668824b59d666733d09b0beeabf47101e6e
+PODFILE CHECKSUM: 5938f66da6150ba75b036c3707256506d7e9c13f
 
 COCOAPODS: 1.5.2
