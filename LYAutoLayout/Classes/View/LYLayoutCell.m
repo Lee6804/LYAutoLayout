@@ -134,11 +134,13 @@
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imageListView.mas_bottom).offset(Space/2);
         make.left.mas_equalTo(self.contentLabel.mas_left);
+        make.height.mas_equalTo(20);
     }];
     
     [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentLabel.mas_right).offset(-Space);
         make.centerY.mas_equalTo(self.timeLabel);
+        make.height.mas_equalTo(20);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-Space);
     }];
     
@@ -198,29 +200,28 @@
 }
 
 +(CGFloat)cellTotalHeight:(LYModel *)model{
-    NSString *contentStr = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:model.content options:0] encoding:NSUTF8StringEncoding];
     CGFloat height = 70;//内容以上的固定高度 headImg高度+2个Space
+    NSString *contentStr = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:model.content options:0] encoding:NSUTF8StringEncoding];
     if (model.unfold) {
-        height += [LYPublicMethod getSize:80 str:contentStr].size.height;//展开状态下 累加内容label高度
-        height += 56;//下面多余控件总高度
+        height += [LYPublicMethod LY_CUSTOME_METHOD(getSize):80 str:contentStr].size.height;//展开状态下 累加内容label高度
+        height += 61;//全文按钮20+2*space + 时间||地点20+2*space+lineHeight
     }else{
-        if ([LYPublicMethod getSize:80 str:contentStr].size.height > 100) {
-            height += 120;
+        if ([LYPublicMethod LY_CUSTOME_METHOD(getSize):80 str:contentStr].size.height > 100) {
+            height += 100;
+            height += 61;
         }else{
-            height += [LYPublicMethod getSize:80 str:contentStr].size.height;
+            height += ([LYPublicMethod LY_CUSTOME_METHOD(getSize):80 str:contentStr].size.height + 1);
+            height += 36;
+            if (![model.picurl isEqualToString:@""]) {
+                height += 5;
+            }
         }
-        height += 40;
-    }
-    
-    NSInteger count = [model.picurl componentsSeparatedByString:@"|"].count;
-    if (count != 0) {
-        height += [LYImageListView imageListHeight:model];
     }
     
     if (![model.picurl isEqualToString:@""]) {
-        height += 10;
+        height += [LYImageListView imageListHeight:model];
     }
-    
+    height += 10;
     return height;
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "LYModel.h"
-#import <MJExtension.h>
 
 @implementation LYModel
 

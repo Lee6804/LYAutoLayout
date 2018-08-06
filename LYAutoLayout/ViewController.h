@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LY_CUSTOME_CLASS(ViewController) : UIViewController
 
 
 @end

@@ -16,14 +16,14 @@ static NSString *const LYCELL = @"LYCell";
 #define SWidth self.view.frame.size.width
 #define SHeight self.view.frame.size.height
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface LY_CUSTOME_CLASS(ViewController) ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *data;
 
 @end
 
-@implementation ViewController
+@implementation LY_CUSTOME_CLASS(ViewController)
 
 -(NSMutableArray *)data{
     if (!_data) {
@@ -32,28 +32,10 @@ static NSString *const LYCELL = @"LYCell";
     return _data;
 }
 
--(void)loadHttpData{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",@"multipart/form-data",nil];
-    [manager POST:@"http://m.easyyimin.com/index.php/Home/Interface/showmessage" parameters:@{@"username":@"151123886804",@"page":@(4)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-}
-
-- (NSDictionary *)readLocalFileWithName:(NSString *)name {
-    // 获取文件路径
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
-    // 将文件数据化
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-    // 对数据进行JSON格式化并返回字典形式
-    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-}
 
 -(void)loadData{
 
-    self.data = [LYModel mj_objectArrayWithKeyValuesArray:[self readLocalFileWithName:@"responseObject"][@"data"]];
+    self.data = [LYModel mj_objectArrayWithKeyValuesArray:[LYPublicMethod readLocalFileWithName:@"responseObject"][@"data"]];
     [self.tableView reloadData];
 }
 
@@ -80,7 +62,6 @@ static NSString *const LYCELL = @"LYCell";
     self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
     [self.view addSubview:self.tableView];
     [self loadData];
-    [self loadHttpData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

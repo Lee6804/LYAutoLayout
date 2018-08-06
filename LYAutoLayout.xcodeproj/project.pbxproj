@@ -19,6 +19,7 @@
 		9B3BB7282105C5AA00B01031 /* LYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB7272105C5AA00B01031 /* LYModel.m */; };
 		9B3BB72B2105C76E00B01031 /* LYLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB72A2105C76E00B01031 /* LYLayoutCell.m */; };
 		9B3BB72E2105D78100B01031 /* LYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BB72D2105D78100B01031 /* LYImage.m */; };
+		9B5B25A32111AF0200AD73CD /* LYImagePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5B25A22111AF0200AD73CD /* LYImagePreviewView.m */; };
 		9B6D8574210EF5CE004BB613 /* LYPublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D8573210EF5CE004BB613 /* LYPublicMethod.m */; };
 		9B7FEB8C210FF78800916A1F /* UIView+LYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FEB89210FF78700916A1F /* UIView+LYFrame.m */; };
 		9B7FEB8D210FF78800916A1F /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FEB8B210FF78800916A1F /* NSDictionary+Log.m */; };
@@ -68,6 +69,8 @@
 		9B3BB72A2105C76E00B01031 /* LYLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYLayoutCell.m; sourceTree = "<group>"; };
 		9B3BB72C2105D78100B01031 /* LYImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYImage.h; sourceTree = "<group>"; };
 		9B3BB72D2105D78100B01031 /* LYImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYImage.m; sourceTree = "<group>"; };
+		9B5B25A12111AF0200AD73CD /* LYImagePreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYImagePreviewView.h; sourceTree = "<group>"; };
+		9B5B25A22111AF0200AD73CD /* LYImagePreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYImagePreviewView.m; sourceTree = "<group>"; };
 		9B6D8572210EF5CE004BB613 /* LYPublicMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPublicMethod.h; sourceTree = "<group>"; };
 		9B6D8573210EF5CE004BB613 /* LYPublicMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPublicMethod.m; sourceTree = "<group>"; };
 		9B6D8575210EF9E9004BB613 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				9B3BB72A2105C76E00B01031 /* LYLayoutCell.m */,
 				9B7FEB8F210FFFA100916A1F /* LYImageListView.h */,
 				9B7FEB90210FFFA100916A1F /* LYImageListView.m */,
+				9B5B25A12111AF0200AD73CD /* LYImagePreviewView.h */,
+				9B5B25A22111AF0200AD73CD /* LYImagePreviewView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 		9B3BB6E32105B83D00B01031 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LY_AutoLayout_;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Lee;
 				TargetAttributes = {
@@ -413,6 +419,7 @@
 				9B7FEB91210FFFA100916A1F /* LYImageListView.m in Sources */,
 				9B6D8574210EF5CE004BB613 /* LYPublicMethod.m in Sources */,
 				9B7FEB8D210FF78800916A1F /* NSDictionary+Log.m in Sources */,
+				9B5B25A32111AF0200AD73CD /* LYImagePreviewView.m in Sources */,
 				9B3BB6FE2105B83E00B01031 /* main.m in Sources */,
 				9B3BB7282105C5AA00B01031 /* LYModel.m in Sources */,
 				9B3BB6F02105B83D00B01031 /* AppDelegate.m in Sources */,
